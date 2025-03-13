@@ -1,0 +1,34 @@
+# Codigo para ver si un numero es inteligente o no 
+
+import random
+import math
+
+#cuenta la cantidad de factores de un numero
+def contar_factor (numero):
+    contador = 0 
+    for i in range (1, numero + 1):
+        if numero % i == 0:
+            contador += 1
+
+    return contador 
+
+
+#define si es un numero inteligente 
+def es_numero_intlgnte (numero):
+    cantidad_factores =  contar_factor(numero)
+
+    return cantidad_factores % 2 != 0
+
+#Genera una lista numeros aleatorios
+def genrar_numeros (cantidad):
+    numero = [random.randint (1, 1000) for _ in range(cantidad)] #genero numeros aleatorios
+    print ("numero a revisar: ",",".join(map(str, numero)))
+
+    for num in numero:
+        if es_numero_intlgnte (num):
+            print(f"{num}: si")
+        else:
+            print(f"{num}: no ")
+
+cantidad_numero = int(input("ingrese numeros a validar: "))
+genrar_numeros(cantidad_numero)# Proyecto-1-programaci-n
